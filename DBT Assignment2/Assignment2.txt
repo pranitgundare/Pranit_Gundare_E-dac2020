@@ -1,0 +1,48 @@
+-- use assignment2;
+create table publisher(pubid int primary key, pname varchar(30), email varchar(50) unique, phone varchar(30)); 
+create table subjects(SubId varchar(5) primary key, SName varchar(30));
+create table authors(AuId int primary key, Aname varchar(30), Email varchar(50) unique, Phone varchar(30));
+create table titles(TitleId int primary key, Title varchar(30), PubId int, SubId varchar(5), PubDate date, cover char(1) check( cover in ('P','H','p','h')), Price int, constraint titles_fk foreign key(PubId) references publisher(PubId),constraint titles_fk1 foreign key(SubId) references subjects(SubId));
+create table titleauthors(TITLEID int(5),AUID int(5),IMPORTANCE int(2));
+drop table publisher;
+drop table titles;
+create table publisher(pubid int primary key, pname varchar(30), email varchar(50) unique, phone varchar(30)); 
+insert into publisher values(1,'Willey','Wg@gmail.com','9100000000');
+insert into publisher values(2,'Rock','Rock@gmail.com','9000000001');
+insert into publisher values(3,'Roman','Roman@gmail.com','8275601004');
+insert into publisher values(4,'TripleH','TH@gmail.com','9545737629');
+insert into publisher values(5,'Brock','BL@gmail.com','9527758209');
+
+
+insert into subjects values ('ORA','ORACLE DATABASE 10g');
+insert into subjects values ('JAVA','JAVA LANGUAGE');
+insert into subjects values ('JEE','JAVA ENTEPRISE EDITION');
+insert into subjects values ('VB','VISUAL BASIC.NET');
+insert into subjects values ('ASP','ASP.NET');
+
+insert into authors values (101,'Virat Kohli','virat@rcb.com','8554855551');
+insert into authors values (102,'Ab De Villers','abd@rcb.com','7770001117');
+insert into authors values (103,'Rohit Sharma','rohit@mi.com','7770056663');
+insert into authors values (104,'Hardik Pandya','hardik@mi.com','9422472955');
+insert into authors values (107,'MS Dhoni','mahi@csk.com','9421380344');
+
+INSERT INTO titles VALUES (1001,'ASP.NET UNLEASHED',4,'ASP','12-04-02','P',540);
+INSERT INTO titles VALUES (1002,'ORACLE10G COMP. REF.',3,'ORA','01-05-05','P',575);
+INSERT INTO titles VALUES (1003,'MASTERING EJB',1,'JEE','3-02-05','P',475);
+INSERT INTO titles VALUES (1004,'JAVA COMP. REF',3,'JAVA','3-04-05','P',499);
+INSERT INTO titles VALUES (1005,'PRO. VB.NET',2,'VB','15-06-05','P',450);
+
+INSERT INTO titleauthors VALUES (1001,104,1);
+INSERT INTO titleauthors VALUES (1002,105,1);
+INSERT INTO titleauthors VALUES (1003,106,1);
+INSERT INTO titleauthors VALUES (1004,101,1);
+INSERT INTO titleauthors VALUES (1005,103,1);
+
+select * from subjects where sname like 'ORACLE %';
+show tables;
+desc authors;
+desc publisher;
+select * from publisher;
+
+
+
