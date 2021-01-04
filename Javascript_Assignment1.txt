@@ -1,0 +1,238 @@
+
+                                           JavaScript Assignment:1
+										   
+	 ******************1.WAP to illustrate implementation of functions in javascript.********************									   
+
+
+
+  -----1.Addition-----
+function sum(a,b)
+{
+    return a+b;
+}
+sum(3,3);
+6
+  -----2.Multiplication-----
+function mul(a,b)
+{
+    return a*b;
+}
+mul(3,3);
+9
+  ----3.Subtraction----
+function sub(a,b)
+{
+    return a-b;
+}
+sub(30,10);
+20
+   -----4.Division-----
+function div(a,b)
+{
+    return a/b;
+}
+div(20,10);
+2
+
+  ------5.Reminder----
+function rem(a,b)
+{
+    return a%b;
+}
+rem(33,10);
+3
+  ------6.Function recalling------
+var x = sum(15,20);
+
+undefined
+x
+35
+
+  --------7.Variable Scope(local and global)--------------
+function demo()
+{
+    var name=20;
+    console.log("name="+name);
+}
+
+undefined
+demo();
+VM781:4 name=20
+undefined
+var name = 50;
+undefined
+name
+"50"
+
+--------8.Conversion of farenhit to celsius--------------
+function toCelsius(fahrenheit) {
+  return (5/9) * (fahrenheit-32);
+}
+toCelsius(77);
+25
+
+           ***************2.WAP to illustrate the declaration of object, assignment of value and display it.********************
+		   
+var pranit={};
+undefined
+pranit["+1"]="value1";
+"value1"
+pranit["key1"]="value2";
+"value2"
+pranit.key2="value3";
+"value3"
+pranit
+{+1: "value1", key1: "value2", key2: "value3"}
+for(var i in pranit)
+{
+    console.log(pranit[i]);
+}
+VM1270:3 value1
+VM1270:3 value2
+VM1270:3 value3
+		   
+		   **************3.WAP to illustrate declaration of array , assignment of value to an array and display it.*****************
+
+var x=[1,2,3,"mon","sat",true,null,function(){return false;}];
+for(var i in x)
+{
+    console.log(i+":"+x[i]);
+}
+VM2706:4 0:1
+VM2706:4 1:2
+VM2706:4 2:3
+VM2706:4 3:mon
+VM2706:4 4:sat
+VM2706:4 5:true
+VM2706:4 6:null
+VM2706:4 7:function(){return false;}
+
+            ***********************4.Write a javascript function named is_integer which checks if the passed argument is an integer.You can use any mathematical operator or functions defined in the Math object.  ********************************
+			
+function is_check(x)
+{
+  if(isNaN(x))
+  {
+      console.log("Not a Number");
+  }
+else
+    console.log("It is a Number");
+}
+is_check(68);
+ It is a Number
+undefined
+is_check("Shailesh");
+ Not a Number
+			
+			
+			
+			*********5.Using the forEach function defined for an array, find the sum of the array of numbers.[ function add_all(arr) {...} ] ***********
+
+function add1(arr)
+{
+    var sum=0;
+for( var i in arr)
+{
+  sum = sum+ arr[i];
+}
+return sum;
+}
+undefined
+arr=[1,2,3,4,5,6,7,8,9,10];
+(10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+add1(arr)
+55
+
+
+         ******************6.Write a JavaScript program to convert temperatures to and from celsius, fahrenheit. [ Use the formula : c/5 = (f-32)/9, where c = temperature in celsius and f = temperature in fahrenheit]******************
+
+
+<html>
+<head>
+<script>
+function toCelsius() {
+	let fahrenheit = document.getElementById("demo").value;
+  let celcius =  (5/9) * (fahrenheit-32);
+  document.getElementById("ans").innerHTML = celcius;
+}
+</script>
+</head>
+
+<body>
+	<h1 id="Shailesh">Convert Fahrenheit to Celsius<h1>
+	<input id="demo" type="text"></input>
+<button onclick="toCelsius()">convert</button>
+<div> celsius=<p id = "ans"></p>C</div>
+
+</body>
+</html>
+
+
+     ***********************7.Write a factorial function that returns the factorial of a given number, n. Make sure you return the calculated value and not just print it. [ function factorial(n){...} ]********************
+	 
+	 function factorial(S)      
+{
+    var fact=1;
+    while(S > 0)
+    {
+        fact=fact*S;
+          S--;
+    }
+  return fact;
+}
+undefined
+factorial(4);
+24
+factorial(3);
+6
+	 
+               #### OR ####
+
+function factorial(S)
+{
+    
+    var fact=1;
+    for(var i=S; i>1;i--)
+    {
+        fact=fact*i;
+         
+    }
+  return fact;
+}
+undefined
+factorial(3);
+6
+factorial(4);
+24	
+
+
+       *********************8.Write a javascript function that converts a given amount of money into coins of denominations (1,2, 5, 10 and 25). [ function convert_to_coins(amount) {...} ]. You may choose to print the coindenominations used on the console. E.g. convert_to_coins(87) should print 25 25 25 10 2.************************
+
+
+function amt(amount,coin)
+{
+   if(amount==0)
+   {
+      return [];
+   }
+   else
+   {
+     if(amount>=coin[0])
+     { 
+     x=(amount-coin[0]);
+     return[coin[0]].concat(amt(x,coin));
+     }
+   else
+   {
+     coin.shift();
+     return amt(amount,coin);
+   }
+ }
+}
+
+undefined
+coin=[25,10,5,2,1];
+(5) [25, 10, 5, 2, 1]
+amt(87,coin);
+(5) [25, 25, 25, 10, 2]	   
+	 
