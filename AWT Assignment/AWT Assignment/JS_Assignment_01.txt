@@ -1,0 +1,227 @@
+<!-- 1.WAP to illustrate implementation of functions in javascript. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Assignment_1</title>
+</head>
+<body>
+    <script>
+
+        //Simple function:
+        function sum(x, y)
+        {
+            return x+y;
+        }
+        document.write("Simple function: "+sum(2,4));
+
+        document.write("<br>");
+
+
+
+        //Anonymous function:
+        var sub = function(x, y)
+        {
+            return x-y;
+        }
+        document.write("Anonymous function: "+sub(4,2));
+
+        document.write("<br>");
+
+
+
+        //Anonymous function with arrow (=>) symbol:
+        var sub1 =(x, y) => x-y;
+        document.write("Anonymous function with arrow (=>) symbol: "+sub1(6,2));
+
+        document.write("<br>");
+
+
+
+        //Anonymous + calling function:
+        var MultNextNum = function(x, y)
+        {
+            return (x * sum(x, 1));
+        }
+        document.write("Anonymous + calling function: "+MultNextNum(4, sum));
+
+        document.write("<br>");
+    </script>
+</body>
+</html>
+
+
+<!-- 2.WAP to illustrate the declaration of object, assignment of value and display it. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Assignment_2</title>
+</head>
+<body>
+    <script>
+        var a = {};
+        a["key1"]="value 1";
+        document.write("key1 = "+a.key1);
+        
+        document.write("<br>");
+   
+        a.key2 = "value 2";
+        document.write("key2 = "+a["key2"]);
+    </script>
+</body>
+</html>
+
+
+<!-- 3.WAP to illustrate declaration of array , assignment of value to an array and display it. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Assignment_3</title>
+</head>
+<body>
+    <script>
+        var arr=[];
+        arr=[1, 2, 3, 4, 5];
+        document.write("arr[1, 2, 3, 4, 5] = "+arr);
+    </script>
+</body>
+</html>
+
+
+<!-- 4.Write a javascript function named is_integer which checks if the passed argument is an integer.
+    You can use any mathematical operator or functions defined in the Math object. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Assignment_4</title>
+</head>
+<body>
+    <script>
+        function is_integer(x)
+        {
+           if(isNaN(x))
+               document.write(x+" is not an Integer");
+           else
+               document.write(x+" is an Integer");
+        }   
+       is_integer(10);
+    </script> 
+</body>
+</html>
+
+
+<!-- 5.Using the forEach function defined for an array, find the sum of the array of numbers. [function add_all(arr) {...}] -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Assignment_5</title>
+</head>
+<body>
+    <script>
+        var arr=[1,2,3,4];
+        var sum=0;
+        for(var i in arr)
+        {
+            sum=sum+arr[i];
+        }   
+        document.write("arr[1+2+3+4] = "+sum);
+       </script> 
+</body>
+</html>
+
+
+<!-- 6.Write a JavaScript program to convert temperatures to and from celsius, fahrenheit.
+    [ Use the formula : c/5 = (f-32)/9, where c = temperature in celsius and f = temperaturein fahrenheit] -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Assignment_6</title>
+</head>
+<body>
+    <script>
+        var c,f=96;
+        c = ((f-32)/9)*5;
+        document.write(f+"F= "+c+" C");
+    </script>
+</body>
+</html>
+
+
+<!-- 7.Write a factorial function that returns the factorial of a given number, n.
+    Make sure you return the calculated value and not just print it. [function factorial(n){...}] -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Assignment_7</title>
+</head>
+<body>
+    <script>
+        function factorial(x)
+        {
+            var fact=1;
+            for(var n=x ; n>1 ; n--)
+            {
+                fact=fact*n;
+            }
+            return fact;
+         }
+      var x =  factorial(5)
+      document.write(x);
+    </script> 
+</body>
+</html>
+
+
+<!-- 8.Write a javascript function that converts a given amount of money into coins of
+    denominations (1, 2, 5, 10 and 25). [function convert_to_coins(amount) {...}].
+    You may choose to print the coin denominations used on the console.
+    E.g. convert_to_coins(87) should print 25 25 25 10 2. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Assignment_8</title>
+</head>
+<body>
+    <script>
+        function convert_to_Coins(amount){
+           var  tf = amount/25;   // tf=3
+            amount = amount % 25; // amount=12 
+            var tn = amount/10; // tn=1
+            amount = amount % 10; //amount=2
+            var F = amount/5;
+            amount = amount % 5;
+            var t = amount/2;
+            amount = amount % 2;
+            console.log("Rs.25 Coins: "+Math.floor(tf));
+            console.log("Rs.10 Coins: "+Math.floor(tn));
+            console.log("Rs.5 Coins: "+Math.floor(F));
+            console.log("Rs.2 Coins: "+Math.floor(t));
+            console.log("Rs.1 Coins: "+Math.floor(amount));
+        }
+        convert_to_Coins(87);
+    </script>
+</body>
+</html>

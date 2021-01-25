@@ -1,0 +1,204 @@
+<!-- 1)With example illustrate variable and function closure in javascript. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Assignment_9</title>
+</head>
+<body>
+    <script>
+        function closure1(n)
+        {
+            var fact = 1;
+            var no=n;
+            function closure2()
+            {
+                for(var i=no ; i>1 ; i--)
+                {
+                    fact=fact*i;
+                }
+                return fact;
+            }
+            return closure2();
+            
+        }
+        document.write("Factorial of 5 is: "+closure1(5));
+    </script>
+</body>
+</html>
+
+
+<!-- 2) Write a javascript function named reverse which takes a string argument and returns the reversed string. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Assignment_10</title>
+</head>
+<body>
+    <script>
+        function strRev(str)
+        {
+            var rev = str.split("");
+            var temp, i, j;
+            var l=rev.length;
+            
+            for(i=0, j=l-1; i<Math.floor(l/2) ; i++, j--)
+            {
+                temp = rev[i];
+                rev[i]=rev[j];
+                rev[j]=temp;
+            }
+            return rev.join("");
+
+           // return str.split("").reverse().join("")
+        }
+
+        document.write("Reverse of Sumit is: "+strRev("Sumit"));
+    </script>
+</body>
+</html>
+
+
+<!-- 3)Given a javascript array of objects having a radius property as shown
+    [{radius: 5}, {radius: 9}, {radius: 2}], write a comparator function to sort it. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Assignment_11</title>
+</head>
+<body>
+    <script>
+        var circleArr = [
+            {radius: 5},
+            {radius: 9},
+            {radius: 2}
+        ];
+
+        circleArr.sort(function (a, b)
+            {
+                return a.radius - b.radius;
+            });
+            
+        // run the above code directly on console.
+    </script>
+</body>
+</html>
+
+
+
+<!-- 4)Write a Javascript program to sort elements of an array using sorting algorithm. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Assignment_12</title>
+</head>
+<body>
+    <script>
+//============== Integer Sorting ===============
+
+        var intArray = [4,7,2,8,5,9,6,1,0,3];
+        function sortIntArray(arr1)
+        {
+            var temp=0;
+            var i;
+            var j;
+            for(i=0 ; i<(arr1.length)-1 ; i++)
+            {
+                for(j=i+1 ; j<arr1.length ; j++)
+                {
+                    if(arr1[i] > arr1[j])
+                    {
+                        temp = arr1[i];
+                        arr1[i] = arr1[j];
+                        arr1[j] = temp;
+                    }
+                }
+            }
+            return arr1;
+        }
+        document.write("Sorting of Integer Array [4,7,2,8,5,9,6,1,0,3] = ["+sortIntArray(intArray)+"]");
+
+
+
+//============== String Sorting ===============
+
+        var strArray = ["P","S","D","F","W","Q"];
+        function sortStrArray(arr2)
+        {
+            var temp=0;
+            var i;
+            var j;
+            for(i=0 ; i<(arr2.length)-1 ; i++)
+            {
+                for(j=i+1 ; j<arr2.length ; j++)
+                {
+                    if(arr2[i] > arr2[j])
+                    {
+                        temp = arr2[i];
+                        arr2[i] = arr2[j];
+                        arr2[j] = temp;
+                    }
+                }
+            }
+            return arr2;
+        }
+        document.write('<br><br> Sorting of String Array [P,S,D,F,W,Q] = ['+sortStrArray(strArray)+"]");
+    </script>
+</body>
+</html>
+
+
+<!-- 5) Write a javascript function named length_of_array, which takes an arrayas
+    argument and returns the number of elements in that array (as opposed to what
+    is given by the length property of the array). Remember undefined can also be
+    an element if it is explicitly set at some index, e.g. x[5] = undefined;.
+    This undefined should be counted, but elements which are not present in the array
+    (as arrays can be sparse), should not be counted. -->
+
+    <!-- JS Assignment 3
+    1 What is a sparse array illustrate its importance with example.
+    2 List  different keywords in javascript
+    3 Difference between == and === operators in javascript , illustrate with example
+    4 With example illustrate typeof operator
+    5 With a suitable example explain for loop in javascript
+    6 With suitable example explain date methods in javascript -->
+    
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Assignment_13</title>
+</head>
+<body>
+    <script>
+
+        function length_of_array(arr)
+        {
+            var count = arr.filter(function (x)
+                    {
+                        if(x != "" || x != null)
+                            return true;
+                        else
+                            return false;
+                    });
+            return count.length;
+        }
+
+        var array1 = [2,,8,5,9,,6,,undefined,1,0,null,3];
+        document.write("Length of Array [2,,8,5,9,,6,,undefined,1,0,null,3] = "+length_of_array(array1));
+    </script>
+</body>
+</html>
