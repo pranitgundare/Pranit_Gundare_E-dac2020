@@ -1,0 +1,26 @@
+.bute {
+    font-size: 2rem;
+    background: rgb(225, 65, 65);
+    color: white;
+
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.bute1 {
+    font-size: 2rem;
+    background: rgb(255, 238, 0);
+    color: white;
+
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
